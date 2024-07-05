@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<style>
+    .form-group {
+        margin-bottom: 1.5rem;
+        padding:10px 400px 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type=text],
+    input[type=number] {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        position: relative;
+        left:600px;
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 0.75rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .position-sticky2 {
+        position: absolute;
+        bottom:1rem;
+        right:1rem;
+        background-color:black;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.25rem;
+        transition: background-color 0.3s;
+    }
+    .position-sticky2:hover {
+        background-color: #343a40;
+    }
+
+</style>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Product</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+            <div class="modal-body">
+                <form th:action="@{/catalog/addProduct}" th:object="${product}" method="post">
+                    <div class="form-group">
+                        <label for="name">Product description</label>
+                        <input type="text" id="name" name="name" th:field="*{name}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Basic Rate</label>
+                        <input type="number" id="price" name="price" th:field="*{price}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" name="category" th:field="*{category}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="alert(Added to catalog Successfully)">Submit</button>
+                    <button type="button" class="position-sticky2" onclick="history.back()">Back</button>
+            </form>
+            </div>
+</body>
+</html>
+
+
+
+
